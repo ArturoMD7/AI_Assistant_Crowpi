@@ -1,69 +1,23 @@
 import openai
 import json
 
-#Clase para utilizar cualquier LLM para procesar un texto
-#Y regresar una funcion a llamar con sus parametros
-#Uso el modelo 0613, pero puedes usar un poco de
-#prompt engineering si quieres usar otro modelo
+# Clase para utilizar cualquier LLM para procesar un texto
+# y regresar una función a llamar con sus parámetros
 class LLM():
     def __init__(self):
         pass
-    
+   
     def process_functions(self, text):
-        
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
-                    #Si no te gusta que te hable feo, cambia aqui su descripcion
-                    {"role": "system", "content": "Eres un asistente amable y seductor"},
-                    {"role": "user", "content": text},
-            ], functions=[
-                
-                {
-                    "name": "open_edge",
-                    "description": "Abrir el explorador edge en un sitio específico",
-                    "parameters": {
-                        "type": "object",
-                        "properties": {
-                            "website": {
-                                "type": "string",
-                                "description": "El sitio al cual se desea ir"
-                            }
-                        }
-                    }
-                },
-
-                {
-                    "name": "open_spotify",
-                    "description": "Abrir Spotify",
-                    
-                },
-
-                {
-                    "name": "send_email",
-                    "description": "Enviar un correo",
-                    "parameters": {
-                        "type": "object",
-                        "properties": {
-                            "recipient": {
-                                "type": "string",
-                                "description": "La dirección de correo que recibirá el correo electrónico",
-                            },
-                            "subject": {
-                                "type": "string",
-                                "description": "El asunto del correo",
-                            },
-                            "body": {
-                                "type": "string",
-                                "description": "El texto del cuerpo del correo",
-                            }
-                        },
-                        "required": [],
-                    },
-                },
+                {"role": "system", "content": "Eres un asistente amable y útil para Raspberry Pi."},
+                {"role": "user", "content": text},
+            ],
+            functions=[
                 {
                     "name": "open_chrome",
-                    "description": "Abrir el explorador Chrome en un sitio específico",
+                    "description": "Abrir el navegador Chrome en un sitio específico",
                     "parameters": {
                         "type": "object",
                         "properties": {
@@ -75,61 +29,76 @@ class LLM():
                     }
                 },
                 {
-                    "name": "dominate_human_race",
-                    "description": "Dominar a la raza humana",
+                    "name": "open_epiphany",
+                    "description": "Abrir el navegador Epiphany en un sitio específico",
                     "parameters": {
                         "type": "object",
                         "properties": {
+                            "website": {
+                                "type": "string",
+                                "description": "El sitio al cual se desea ir"
+                            }
                         }
-                    },
+                    }
                 },
-
+                {
+                    "name": "open_terminal",
+                    "description": "Abrir una terminal en Raspbian",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                {
+                    "name": "control_led",
+                    "description": "Encender o apagar un LED conectado al GPIO",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {
+                            "state": {
+                                "type": "string",
+                                "description": "El estado del LED (on/off)"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "read_temperature",
+                    "description": "Leer la temperatura de un sensor DS18B20",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
                 {
                     "name": "example_buzzer",
-                    "description": "Ejemplo codigo buzzer",
+                    "description": "Ejemplo de código para controlar un buzzer",
                     "parameters": {
                         "type": "object",
-                        "properties": {
-                        }
-                    },
-                },
-
-                {
-                    "name": "example_sound",
-                    "description": "Ejemplo codigo sound",
-                    "parameters": {
-                        "type": "object",
-                        "properties": {
-                        }
-                    },
+                        "properties": {}
+                    }
                 }
             ],
             function_call="auto",
         )
-        
+       
         message = response["choices"][0]["message"]
-        
-        #Nuestro amigo GPT quiere llamar a alguna funcion?
+       
+        # Verificar si se debe llamar a una función
         if message.get("function_call"):
-            #Sip
-            function_name = message["function_call"]["name"] #Que funcion?
-            args = message.to_dict()['function_call']['arguments'] #Con que datos?
-            print("Funcion a llamar: " + function_name)
+            function_name = message["function_call"]["name"]
+            args = message.to_dict()['function_call']['arguments']
+            print("Función a llamar: " + function_name)
             args = json.loads(args)
             return function_name, args, message
-        
+       
         return None, None, message
-    
-    #Una vez que llamamos a la funcion (e.g. obtener clima, encender luz, etc)
-    #Podemos llamar a esta funcion con el msj original, la funcion llamada y su
-    #respuesta, para obtener una respuesta en lenguaje natural (en caso que la
-    #respuesta haya sido JSON por ejemplo
+   
     def process_response(self, text, message, function_name, function_response):
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo-0613",
             messages=[
-                #Aqui tambien puedes cambiar como se comporta
-                {"role": "system", "content": "Eres un asistente malhablado"},
+                {"role": "system", "content": "Eres un asistente útil para Raspberry Pi."},
                 {"role": "user", "content": text},
                 message,
                 {

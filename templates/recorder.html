@@ -10,7 +10,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css" rel="stylesheet" />
   </head>
   <body>
-    <h1>Bienvenido al Asistente de CrowPi</h1>
+    <h1>Bienvenido al Asistente de Raspberry Pi</h1>
 
     <div class="container">
         <div class="row mt-3 px-3">
@@ -66,7 +66,7 @@
                 document.getElementById("buzzer-code").textContent = ""; // Borrar el código si no es relevante
             }
         });
-    
+   
         // Función para mostrar el código del buzzer
         function showBuzzerCode() {
             fetch("/example_buzzer")
@@ -78,7 +78,7 @@
                     }
                 });
         }
-    
+   
         // Llamar a la función para mostrar el código del buzzer cuando se cargue la página
         showBuzzerCode();
     </script>
