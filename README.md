@@ -1,7 +1,5 @@
 
 # Asistente virtual
-Este repositorio es el código para el video del Asistente Virtual en el canal Ringa Tech:
-https://youtu.be/-0tIy8wWtzE
 
 ## Configuración
 Para ejecutar el proyecto es necesario:
@@ -13,7 +11,6 @@ Para ejecutar el proyecto es necesario:
 	- En el archivo coloca las llaves. Para el proyecto tal cual del video (y este repositorio) estoy utilizando:
 	- ```OPENAI_API_KEY=XXXXXX```
 	- ```ELEVENLABS_API_KEY=XXXXXX```
-	- ```WEATHER_API_KEY=XXXXXX```
 
 ## Ajustes
 El proyecto cuenta con algunas cosas que quizá quieras modificar, por ejemplo:
@@ -27,13 +24,6 @@ El proyecto cuenta con algunas cosas que quizá quieras modificar, por ejemplo:
 	- En tu navegador ve a http://localhost:5000
 	- Da clic para comenzar a grabar (pedirá permiso). Dar clic para dejar de grabar
 	- Espera y ve como domina al mundo
-
-
-## ¿Problemas?
-
-Solo lo probé en mi equipo así que si tienes problemas, levanta un issue aquí en Github, con el mayor detalle que puedas (versión de python, de paquetes, mensaje completo de error, etc).
-
-Si eres ninja y lo solucionas, ¡levanta un Pull Request!
 
 ## Licencias
 - Imagen de micrófono por Freepik
