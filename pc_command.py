@@ -1,6 +1,12 @@
 from subprocess import call
-import RPi.GPIO as GPIO
+import sys
 import time
+
+if sys.platform.startswith("linux"):  # Solo se ejecuta en Raspberry Pi
+    import RPi.GPIO as GPIO
+else:
+    print("Ejecutando en un entorno que no es Raspberry Pi, ignorando RPi.GPIO")
+
 
 # Clase para ejecutar comandos en la Raspberry Pi con Raspbian
 class PcCommand():

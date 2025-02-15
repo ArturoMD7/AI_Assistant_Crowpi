@@ -32,16 +32,27 @@ def audio():
     function_name, args, message = llm.process_functions(text)
     if function_name is not None:
         # Si se desea llamar una función de las que tenemos
-        if function_name == "get_weather":
-            # Llamar a la función del clima
-            function_response = Weather().get(args["ubicacion"])
-            function_response = json.dumps(function_response)
-            print(f"Respuesta de la función: {function_response}")
-           
-            final_response = llm.process_response(text, message, function_name, function_response)
+        if function_name == "show_commands":
+            # Llamar a la función para mostrar el código del vibrador
+            with open("examples/commands.txt", "r") as file:
+                code_content = file.read()
+            final_response = "Aquí tienes mis comandos disponibles"
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file, "code": code_content}
+       
+        elif function_name == "presentation":
+            final_response = "¡Hola! Soy GAMA, tu compañero de aprendizaje en el mundo de la CrowPi.Estoy aquí para enseñarte, guiarte y hacer que la electrónica y la programación sean más fáciles y divertidas."
             tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
             return {"result": "ok", "text": final_response, "file": tts_file}
-       
+
+        elif function_name == "commands":
+            # Llamar a la función para mostrar el código del vibrador
+            with open("examples/commands.txt", "r") as file:
+                code_content = file.read()
+            final_response = "Aquí tienes la lista de mis comandos disponibles"
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file, "code": code_content}
+
         elif function_name == "open_chrome":
             PcCommand().open_chrome(args["website"])
             final_response = "Listo, ya abrí Chrome en el sitio " + args["website"]
@@ -74,9 +85,33 @@ def audio():
 
         elif function_name == "example_buzzer":
             # Llamar a la función para mostrar el código del buzzer
-            with open("buzzer.py", "r") as file:
+            with open("examples/buzzer.py", "r") as file:
                 code_content = file.read()
             final_response = "Aquí tienes el ejemplo de Buzzer"
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file, "code": code_content}
+        
+        elif function_name == "example_button_buzzer":
+            # Llamar a la función para mostrar el código del buzzer
+            with open("examples/button_buzzer.py", "r") as file:
+                code_content = file.read()
+            final_response = "Aquí tienes el ejemplo de Buzzer con boton"
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file, "code": code_content}
+        
+        elif function_name == "example_relay":
+            # Llamar a la función para mostrar el código del buzzer
+            with open("examples/relay.py", "r") as file:
+                code_content = file.read()
+            final_response = "Aquí tienes el ejemplo de Relay"
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file, "code": code_content}
+        
+        elif function_name == "example_vibration":
+            # Llamar a la función para mostrar el código del vibrador
+            with open("examples/vibration.py", "r") as file:
+                code_content = file.read()
+            final_response = "Aquí tienes el ejemplo de Vibration"
             tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
             return {"result": "ok", "text": final_response, "file": tts_file, "code": code_content}
 

@@ -1,0 +1,19 @@
+1. Comandos de Control de PC:
+Abrir Chrome → open_chrome(website)
+Abrir Epiphany (navegador) → open_epiphany(website)
+Abrir terminal → open_terminal()
+
+2. Comandos de Hardware en Raspberry Pi:
+Controlar LED → control_led(state) (on o off)
+Leer temperatura → read_temperature()
+
+3. Comandos de Clima:
+Obtener el clima → get_weather(ubicacion)
+
+4. Ejemplos de Código:
+Tu asistente puede mostrar ejemplos de código para componentes electrónicos en Raspberry Pi:
+
+Ejemplo de buzzer → example_buzzer()
+Ejemplo de buzzer con botón → example_button_buzzer()
+Ejemplo de relay → example_relay()
+Ejemplo de vibrador → example_vibration()

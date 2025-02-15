@@ -15,6 +15,16 @@ class LLM():
                 {"role": "user", "content": text},
             ],
             functions=[
+
+                {
+                    "name": "presentation",
+                    "description": "El asistente GAMA se presentara",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+
                 {
                     "name": "open_chrome",
                     "description": "Abrir el navegador Chrome en un sitio específico",
@@ -73,6 +83,42 @@ class LLM():
                 {
                     "name": "example_buzzer",
                     "description": "Ejemplo de código para controlar un buzzer",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+
+                {
+                    "name": "example_button_buzzer",
+                    "description": "Ejemplo de código para controlar un buzzer con un boton",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+
+                {
+                    "name": "example_relay",
+                    "description": "Ejemplo de código del uso de relay",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+
+                {
+                    "name": "example_vibration",
+                    "description": "Ejemplo de código del uso de relay",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+
+                {
+                    "name": "commands",
+                    "description": "lista de todos los comandos",
                     "parameters": {
                         "type": "object",
                         "properties": {}
