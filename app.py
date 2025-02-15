@@ -4,10 +4,8 @@ from dotenv import load_dotenv
 from flask import Flask, render_template, request
 import json
 import time  # Importar time para el timestamp
-
 from transcriber import Transcriber
 from llm import LLM
-from weather import Weather
 from tts import TTS
 from pc_command import PcCommand
 
@@ -41,7 +39,7 @@ def audio():
             return {"result": "ok", "text": final_response, "file": tts_file, "code": code_content}
        
         elif function_name == "presentation":
-            final_response = "¡Hola! Soy GAMA, tu compañero de aprendizaje en el mundo de la CrowPi.Estoy aquí para enseñarte, guiarte y hacer que la electrónica y la programación sean más fáciles y divertidas."
+            final_response = "¡Hola! Soy GAMA, tu compañero de aprendizaje en el mundo de la CrowPi. Estoy aquí para enseñarte, guiarte y hacer que la electrónica y la programación sean más fáciles y divertidas."
             tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
             return {"result": "ok", "text": final_response, "file": tts_file}
 
@@ -116,6 +114,6 @@ def audio():
             return {"result": "ok", "text": final_response, "file": tts_file, "code": code_content}
 
     else:
-        final_response = "Eso no está relacionado con Raspberry Pi"
+        final_response = "Eso no está relacionado con Crowpi"
         tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
         return {"result": "ok", "text": final_response, "file": tts_file}

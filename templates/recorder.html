@@ -67,69 +67,23 @@
             }
         });
    
-        // Función para mostrar el código del buzzer
-        function showBuzzerCode() {
-            fetch("examples/example_buzzer")
+         // Función genérica para mostrar código
+         function showCode(endpoint, elementId) {
+            fetch(endpoint)
                 .then(response => response.json())
                 .then(data => {
                     if (data.result === "ok") {
-                        document.getElementById("buzzer-code").textContent = data.code;
-                        Prism.highlightAll(); // Resaltar la sintaxis
-                    }
-                });
-        }
-        
-        // Función para mostrar el código del buzzer con boton
-        function showBuzzerButtonCode() {
-            fetch("examples/example_button_buzzer")
-                .then(response => response.json())
-                .then(data => {
-                    if (data.result === "ok") {
-                        document.getElementById("button_buzzer-code").textContent = data.code;
+                        document.getElementById(elementId).textContent = data.code;
                         Prism.highlightAll(); // Resaltar la sintaxis
                     }
                 });
         }
 
-        // Función para mostrar el código del relay
-        function showRelayCode() {
-            fetch("examples/example_relay")
-                .then(response => response.json())
-                .then(data => {
-                    if (data.result === "ok") {
-                        document.getElementById("relay-code").textContent = data.code;
-                        Prism.highlightAll(); // Resaltar la sintaxis
-                    }
-                });
-        }
-
-        function showVibrationCode() {
-            fetch("example_vibration")
-                .then(response => response.json())
-                .then(data => {
-                    if (data.result === "ok") {
-                        document.getElementById("relay-code").textContent = data.code;
-                        Prism.highlightAll(); // Resaltar la sintaxis
-                    }
-                });
-        }
-
-        function showCommands() {
-            fetch("commands")
-                .then(response => response.json())
-                .then(data => {
-                    if (data.result === "ok") {
-                        document.getElementById("relay-code").textContent = data.code;
-                        Prism.highlightAll(); // Resaltar la sintaxis
-                    }
-                });
-        }
-
-        // Llamar a la función para mostrar el código del buzzer cuando se cargue la página
-        showBuzzerCode();
-        showBuzzerButtonCode();
-        showRelayCode();
-        showCommands();
+        // Llamar a la función para mostrar el código cuando se cargue la página
+        showCode("examples/example_buzzer", "buzzer-code");
+        showCode("examples/example_button_buzzer", "button_buzzer-code");
+        showCode("examples/example_relay", "relay-code");
+        showCode("commands", "relay-code");
     </script>
 
   </body>
