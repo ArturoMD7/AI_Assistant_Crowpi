@@ -26,6 +26,15 @@ class LLM():
                 },
 
                 {
+                    "name": "nombre",
+                    "description": "El asistente GAMA se presentara",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+
+                {
                     "name": "open_chrome",
                     "description": "Abrir el navegador Chrome en un sitio específico",
                     "parameters": {
@@ -110,6 +119,15 @@ class LLM():
                 {
                     "name": "example_vibration",
                     "description": "Ejemplo de código del uso de relay",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+
+                {
+                    "name": "read_distance",
+                    "description": "Medir la distancia usando el sensor ultrasonico",
                     "parameters": {
                         "type": "object",
                         "properties": {}

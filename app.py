@@ -38,7 +38,7 @@ def audio():
             tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
             return {"result": "ok", "text": final_response, "file": tts_file, "code": code_content}
        
-        elif function_name == "presentation":
+        elif function_name == "presentation" or function_name == "nombre":
             final_response = "¡Hola! Soy GAMA, tu compañero de aprendizaje en el mundo de la CrowPi. Estoy aquí para enseñarte, guiarte y hacer que la electrónica y la programación sean más fáciles y divertidas."
             tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
             return {"result": "ok", "text": final_response, "file": tts_file}
@@ -69,17 +69,6 @@ def audio():
             tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
             return {"result": "ok", "text": final_response, "file": tts_file}
 
-        elif function_name == "control_led":
-            PcCommand().control_led(args["state"])
-            final_response = f"Listo, el LED está {args['state']}"
-            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
-            return {"result": "ok", "text": final_response, "file": tts_file}
-
-        elif function_name == "read_temperature":
-            temperature_response = PcCommand().read_temperature()
-            final_response = temperature_response
-            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
-            return {"result": "ok", "text": final_response, "file": tts_file}
 
         elif function_name == "example_buzzer":
             # Llamar a la función para mostrar el código del buzzer
@@ -112,6 +101,12 @@ def audio():
             final_response = "Aquí tienes el ejemplo de Vibration"
             tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
             return {"result": "ok", "text": final_response, "file": tts_file, "code": code_content}
+
+        elif function_name == "read_distance":
+            distance_response = PcCommand().read_distance()
+            final_response = distance_response
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file}
 
     else:
         final_response = "Eso no está relacionado con Crowpi"

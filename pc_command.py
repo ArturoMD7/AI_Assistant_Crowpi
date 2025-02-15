@@ -2,16 +2,18 @@ from subprocess import call
 import sys
 import time
 
-if sys.platform.startswith("linux"):  # Solo se ejecuta en Raspberry Pi
+# Verificar si estamos en un entorno de Raspberry Pi (Linux)
+if sys.platform.startswith("linux"):
     import RPi.GPIO as GPIO
+    from sensors.read_distance import measure_distance  # Importar la nueva función
 else:
     print("Ejecutando en un entorno que no es Raspberry Pi, ignorando RPi.GPIO")
-
 
 # Clase para ejecutar comandos en la Raspberry Pi con Raspbian
 class PcCommand():
     def __init__(self):
-        GPIO.setmode(GPIO.BCM)  # Usar numeración BCM para los pines GPIO
+        if sys.platform.startswith("linux"):  # Solo configurar GPIO en Raspberry Pi
+            GPIO.setmode(GPIO.BCM)  # Usar numeración BCM para los pines GPIO
 
     def open_chrome(self, website):
         # Abrir Chrome en Raspbian
@@ -27,31 +29,13 @@ class PcCommand():
         # Abrir una terminal en Raspbian
         call("lxterminal", shell=True)
 
-    def control_led(self, state):
-        # Controlar un LED conectado al pin GPIO 18
-        led_pin = 18
-        GPIO.setup(led_pin, GPIO.OUT)
-        if state == "on":
-            GPIO.output(led_pin, GPIO.HIGH)
-        elif state == "off":
-            GPIO.output(led_pin, GPIO.LOW)
+    def read_distance(self):
+        if not sys.platform.startswith("linux"):  # Si no es Raspberry Pi
+            return "Simulando medición de distancia: 25 cm"  # Simular una distancia en Windows
+
+        # Medir la distancia usando el sensor ultrasónico
+        distance = measure_distance()
+        if distance is not None:
+            return f"La distancia medida es {distance} cm"
         else:
-            print("Estado no válido. Usa 'on' o 'off'.")
-
-    def read_temperature(self):
-        # Leer la temperatura de un sensor DS18B20 (conexión 1-Wire)
-        try:
-            with open("/sys/bus/w1/devices/28-00000xxxxxxx/w1_slave", "r") as file:
-                lines = file.readlines()
-                if lines[0].strip()[-3:] == "YES":
-                    temp_pos = lines[1].find("t=")
-                    if temp_pos != -1:
-                        temp = float(lines[1][temp_pos+2:]) / 1000.0
-                        return f"La temperatura es {temp}°C"
-        except Exception as e:
-            return f"Error al leer la temperatura: {e}"
-        return "No se pudo leer la temperatura."
-
-    def cleanup_gpio(self):
-        # Limpiar los pines GPIO al finalizar
-        GPIO.cleanup()
+            return "No se pudo medir la distancia."
