@@ -142,6 +142,15 @@ class LLM():
                         "properties": {}
                     }
                 },
+                
+                {
+                    "name": "use_matrix",
+                    "description": "Usar la matriz",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
 
                 {
                     "name": "commands",

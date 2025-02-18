@@ -8,6 +8,8 @@ from transcriber import Transcriber
 from llm import LLM
 from tts import TTS
 from pc_command import PcCommand
+from gpiozero import DistanceSensor
+import time
 
 # Cargar llaves del archivo .env
 load_dotenv()
@@ -114,6 +116,11 @@ def audio():
             tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
             return {"result": "ok", "text": final_response, "file": tts_file}
             
+        elif function_name == "use_matrix":
+            PcCommand().use_matrix()
+            final_response = "Listo, Mensaje mostrado en la matriz"
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file}
 
     else:
         final_response = "Eso no está relacionado con Crowpi"
