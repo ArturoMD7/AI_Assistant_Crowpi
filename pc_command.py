@@ -1,19 +1,16 @@
 from subprocess import call
 import sys
 import time
+import os
 
-# Verificar si estamos en un entorno de Raspberry Pi (Linux)
-if sys.platform.startswith("linux"):
-    import RPi.GPIO as GPIO
-    from sensors.read_distance import measure_distance  # Importar la nueva función
-else:
-    print("Ejecutando en un entorno que no es Raspberry Pi, ignorando RPi.GPIO")
+# Importar la función measure_distance desde read_distance.py
+from sensors.read_distance import measure_distance
 
 # Clase para ejecutar comandos en la Raspberry Pi con Raspbian
 class PcCommand():
     def __init__(self):
-        if sys.platform.startswith("linux"):  # Solo configurar GPIO en Raspberry Pi
-            GPIO.setmode(GPIO.BCM)  # Usar numeración BCM para los pines GPIO
+        if sys.platform.startswith("linux"):  # Solo ejecutar en Raspberry Pi
+            from gpiozero import Buzzer  # Usar numeración BCM para los pines GPIO
 
     def open_chrome(self, website):
         # Abrir Chrome en Raspbian
@@ -33,9 +30,21 @@ class PcCommand():
         if not sys.platform.startswith("linux"):  # Si no es Raspberry Pi
             return "Simulando medición de distancia: 25 cm"  # Simular una distancia en Windows
 
-        # Medir la distancia usando el sensor ultrasónico
-        distance = measure_distance()
-        if distance is not None:
-            return f"La distancia medida es {distance} cm"
+        # Llamar a la función measure_distance para obtener la distancia
+        distance_cm = measure_distance()
+        if distance_cm is not None:
+            return f"La distancia medida es {distance_cm:.2f} cm"  # Formatear a 2 decimales
         else:
             return "No se pudo medir la distancia."
+
+    def use_buzzer(self):
+        try:
+            call("sudo python3 sensors/buzzer.py", shell=True)
+        except Exception as e:
+            print(f"Error al ejecutar el comando del buzzer: {e}")
+
+    def use_matrix(self):
+        try:
+            call("sudo python3 sensors/matrix.py", shell=True)
+        except Exception as e:
+            print(f"Error al ejecutar el comando de la matrix: {e}")
