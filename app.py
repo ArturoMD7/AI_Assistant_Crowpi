@@ -121,6 +121,12 @@ def audio():
             final_response = "Listo, Mensaje mostrado en la matriz"
             tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
             return {"result": "ok", "text": final_response, "file": tts_file}
+        
+        elif function_name == "use_lcd":
+            PcCommand().use_lcd()
+            final_response = "Listo, Mensaje mostrado en la pantalla lcd"
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file}
 
     else:
         final_response = "Eso no está relacionado con Crowpi"

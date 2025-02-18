@@ -151,6 +151,16 @@ class LLM():
                         "properties": {}
                     }
                 },
+                
+                
+                {
+                    "name": "use_lcd",
+                    "description": "Usar la pantalla lcd",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
 
                 {
                     "name": "commands",
