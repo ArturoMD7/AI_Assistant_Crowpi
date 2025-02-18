@@ -48,3 +48,9 @@ class PcCommand():
             call("sudo python3 sensors/matrix.py", shell=True)
         except Exception as e:
             print(f"Error al ejecutar el comando de la matrix: {e}")
+            
+    def use_lcd(self):
+        try:
+            call("sudo python3 sensors/lcd.py", shell=True)
+        except Exception as e:
+            print(f"Error al ejecutar el comando de lcd: {e}")
