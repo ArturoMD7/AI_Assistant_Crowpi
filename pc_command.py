@@ -3,17 +3,14 @@ import sys
 import time
 
 # Verificar si estamos en un entorno de Raspberry Pi (Linux)
-if sys.platform.startswith("linux"):
-    import RPi.GPIO as GPIO
-    from sensors.read_distance import measure_distance  # Importar la nueva función
-else:
-    print("Ejecutando en un entorno que no es Raspberry Pi, ignorando RPi.GPIO")
+if sys.platform.startswith("linux"):  # Solo ejecutar en Raspberry Pi
+    from gpiozero import Buzzer
 
 # Clase para ejecutar comandos en la Raspberry Pi con Raspbian
 class PcCommand():
     def __init__(self):
-        if sys.platform.startswith("linux"):  # Solo configurar GPIO en Raspberry Pi
-            GPIO.setmode(GPIO.BCM)  # Usar numeración BCM para los pines GPIO
+        if sys.platform.startswith("linux"):  # Solo ejecutar en Raspberry Pi
+            from gpiozero import Buzzer # Usar numeración BCM para los pines GPIO
 
     def open_chrome(self, website):
         # Abrir Chrome en Raspbian
@@ -34,8 +31,10 @@ class PcCommand():
             return "Simulando medición de distancia: 25 cm"  # Simular una distancia en Windows
 
         # Medir la distancia usando el sensor ultrasónico
-        distance = measure_distance()
-        if distance is not None:
-            return f"La distancia medida es {distance} cm"
-        else:
-            return "No se pudo medir la distancia."
+        call("sudo python3 sensors/read_distance.py", shell=True)
+    
+    def use_buzzer(self):
+        try:
+            call("sudo python3 sensors/buzzer.py", shell=True)
+        except Exception as e:
+            print(f"Error al ejecutar el comando del buzzer: {e}")

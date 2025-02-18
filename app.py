@@ -107,6 +107,13 @@ def audio():
             final_response = distance_response
             tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
             return {"result": "ok", "text": final_response, "file": tts_file}
+        
+        elif function_name == "use_buzzer":
+            PcCommand().use_buzzer()
+            final_response = "Listo, Se hizo sonar el buzzer"
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file}
+            
 
     else:
         final_response = "Eso no está relacionado con Crowpi"

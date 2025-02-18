@@ -135,6 +135,15 @@ class LLM():
                 },
 
                 {
+                    "name": "use_buzzer",
+                    "description": "Hacer sonar el buzzer",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+
+                {
                     "name": "commands",
                     "description": "lista de todos los comandos",
                     "parameters": {
