@@ -13,7 +13,8 @@ from pc_command import PcCommand
 import time
 
 if sys.platform.startswith("linux"):  # Si es Raspberry Pi
-    from gpiozero import DistanceSensor   
+    from gpiozero import DistanceSensor 
+      
 
 # Cargar llaves del archivo .env
 load_dotenv()

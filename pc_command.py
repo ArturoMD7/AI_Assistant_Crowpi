@@ -40,14 +40,14 @@ class PcCommand():
         
     def read_temperature(self):
         if not sys.platform.startswith("linux"):  # Si no es Raspberry Pi
-            return "Simulando mediciónn de temperatura: 16 grados"  # Simular una distancia en Windows
+            return "Simulando medición de temperatura: 16 grados"  # Simular una temperatura en Windows
 
-        # Llamar a la función measure_distance para obtener la distancia
+        # Llamar a la función measure_temperature para obtener la temperatura
         temperature = measure_temperature()
         if temperature is not None:
-            return(f"la Temperatura es de: {temperature:.2f} grados Celcius")
+            return f"La temperatura es de: {temperature:.2f} grados Celsius"
         else:
-            return("Fallo al medir la temperatura.")
+            return "Fallo al medir la temperatura."
 
     def use_buzzer(self):
         try:
