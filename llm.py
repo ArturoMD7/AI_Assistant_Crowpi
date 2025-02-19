@@ -163,7 +163,7 @@ class LLM():
                 },
 
                 {
-                    "name": "commands",
+                    "name": "show_commands",
                     "description": "lista de todos los comandos",
                     "parameters": {
                         "type": "object",

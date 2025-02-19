@@ -29,7 +29,7 @@ async function record() {
         blobs = [];
 
         // Grabar audio, blabla
-        stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+        stream = await navigator.mediaDevices.getUserMedia({ audio: {sampleRate: 44100, channelCount: 1, echoCancellation: true, noiseSuppression: true, autoGainControl: false}, video: false });
         rec = new MediaRecorder(stream);
         rec.ondataavailable = e => {
             if (e.data) {
@@ -54,7 +54,7 @@ function doPreview() {
 
         // Usar fetch para enviar el audio grabado a Pythonio
         var fd = new FormData();
-        fd.append("audio", blob, "audio");
+        fd.append("audio", blob, "recording.mp3");
 
         fetch(recordUrl, {
             method: "POST",

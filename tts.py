@@ -29,6 +29,8 @@ class TTS():
         }
 
         response = requests.post(url, json=data, headers=headers)
+        print(response.status_code)
+        print(response.text) 
 
         # Asegurar que la carpeta "static" existe
         os.makedirs("static", exist_ok=True)
