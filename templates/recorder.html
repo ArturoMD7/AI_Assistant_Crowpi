@@ -3,37 +3,64 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Recorder</title>
+    <title>Asistente de Raspberry Pi</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="static/recorder.css">
+
     <!-- Añadir Prism.js para resaltar la sintaxis -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css" rel="stylesheet" />
+
+    <!-- Fuente personalizada -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   </head>
+  
   <body>
-    <h1>Bienvenido al Asistente de Raspberry Pi</h1>
 
-    <div class="container">
-        <div class="row mt-3 px-3">
-            <div class="col-12 text-center">
-                <button type="button" class="btn-record btn-record-green" id="record" onclick="record()">
-                    <img class="mic-img" src="static/img/microphone.png" />
-                </button>
-                <button type="button" class="btn-record btn-record-red" id="stop" onclick="stop()" style="display:none">
-                    <img class="mic-img" id="record-stop-label" src="static/img/microphone.png" />
-                    <span id="record-stop-loading" style="display: none"><span class="spinner-border spinner-border-sm record-spinner" role="status" aria-hidden="true"></span></span>
-                </button>
-            </div>
-            <div class="col-12 text-center mt-2">
-                <div id="text"></div>
-            </div>
-        </div>
+    <div class="container my-5 text-center">
+      <h1>Bienvenido al Asistente de Raspberry Pi</h1>
+      
+      <!-- Imagen del robot -->
+      <div class="robot-container">
+        <img class="robot-img" src="static/img/robot.jpg" alt="Robot" />
+      </div>
 
-        <!-- Contenedor para mostrar el código del buzzer -->
-        <div class="row mt-3 px-3">
-            <div class="col-12">
-                <pre><code id="buzzer-code" class="language-python"></code></pre>
-            </div>
+      <!-- Sección de ayuda -->
+      <div class="help-container">
+        <h2>¿Cómo te puedo ayudar?</h2>
+        <p>Haz clic en el micrófono para comenzar a grabar y hacerme una pregunta.</p>
+      </div>
+
+      <!-- Botones de grabación -->
+      <button type="button" class="btn-record" id="record" onclick="record()">
+        <img class="mic-icon" src="static/img/2.jpg" alt="Grabar" />
+      </button>
+      <button type="button" class="btn-record " id="stop" onclick="stop()" style="display: none">
+        <img class="mic-icon" id="record-stop-label" src="static/img/bocina.png" alt="Detener" />
+        <span id="record-stop-loading" style="display: none">
+          <span class="spinner-border spinner-border-sm record-spinner" role="status" aria-hidden="true"></span>
+        </span>
+      </button>
+
+       <!-- Respuesta de texto -->
+       <div class="col-12 text-center mt-2 help-container">
+        <div id="text"></div>
+      </div>
+
+      <!-- Contenedor del código -->
+      <div class="col-12 mt-3">
+        <div id="code-container" class="response-box">
+          <pre><code id="buzzer-code" class="language-python"></code></pre>
         </div>
+      </div>
+
+      <!-- Animación de ondas -->
+      <div id="recording-wave" class="recording-wave" style="display: none;">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+      </div>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
@@ -66,24 +93,40 @@
                 document.getElementById("buzzer-code").textContent = ""; // Borrar el código si no es relevante
             }
         });
-   
-         // Función genérica para mostrar código
-         function showCode(endpoint, elementId) {
-            fetch(endpoint)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.result === "ok") {
-                        document.getElementById(elementId).textContent = data.code;
-                        Prism.highlightAll(); // Resaltar la sintaxis
-                    }
-                });
+
+      function showWaveAnimation() {
+        document.getElementById("recording-wave").style.display = "flex";
+      }
+
+      function hideWaveAnimation() {
+        document.getElementById("recording-wave").style.display = "none";
+      }
+
+      function handleRecordingResponse(response) {
+            stopRecording();
+            if (!response || response == null) return;
+            document.getElementById("text").innerHTML = response.text;
+            if (response.file) new Audio("static/" + response.file).play();
+            if (response.code) {
+                document.getElementById("buzzer-code").textContent = response.code;
+                Prism.highlightAll();
+            }
         }
 
-        // Llamar a la función para mostrar el código cuando se cargue la página
+      function showCode(endpoint, elementId) {
+            fetch(endpoint).then(response => response.json()).then(data => {
+                if (data.result === "ok") {
+                    document.getElementById(elementId).textContent = data.code;
+                    Prism.highlightAll();
+                }
+            });
+        }
+
         showCode("examples/example_buzzer", "buzzer-code");
         showCode("examples/example_button_buzzer", "button_buzzer-code");
         showCode("examples/example_relay", "relay-code");
         showCode("commands", "relay-code");
+        
     </script>
 
   </body>

@@ -1,5 +1,6 @@
 import os
 import openai
+import sys
 from dotenv import load_dotenv
 from flask import Flask, render_template, request
 import json
@@ -8,8 +9,11 @@ from transcriber import Transcriber
 from llm import LLM
 from tts import TTS
 from pc_command import PcCommand
-from gpiozero import DistanceSensor
+
 import time
+
+if sys.platform.startswith("linux"):  # Si es Raspberry Pi
+    from gpiozero import DistanceSensor   
 
 # Cargar llaves del archivo .env
 load_dotenv()

@@ -19,6 +19,7 @@ function recorder(url, handler) {
  */
 async function record() {
     try {
+        showWaveAnimation()
         document.getElementById("text").innerHTML = "<i>Grabando...</i>";
         document.getElementById("record").style.display = "none";
         document.getElementById("stop").style.display = "";
@@ -70,6 +71,7 @@ function doPreview() {
 }
 
 function stop() {
+    hideWaveAnimation()
     document.getElementById("record-stop-label").style.display = "none";
     document.getElementById("record-stop-loading").style.display = "block";
     document.getElementById("stop").disabled = true;
@@ -97,6 +99,9 @@ function handleAudioResponse(response) {
         let audio = new Audio();
         audio.src = "static/" + response.file + "?t=" + new Date().getTime(); // Evitar caché
         audio.play();
+    }  else if (typeof response.text !== "undefined") {
+        // Si no hay archivo de audio, convertir el texto en voz
+        speakText(response.text);
     }
 
     // Mostrar el código del buzzer si está presente

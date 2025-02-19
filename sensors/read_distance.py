@@ -1,5 +1,8 @@
-from gpiozero import DistanceSensor
+import sys
 import time
+
+if sys.platform.startswith("linux"):  # Si es Raspberry Pi
+            from gpiozero import DistanceSensor
 
 def measure_distance():
     distancesensor = DistanceSensor(echo=12, trigger=16, max_distance=5)
