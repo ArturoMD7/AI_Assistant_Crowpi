@@ -1,19 +1,31 @@
-1. Comandos de Control de PC:
-Abrir Chrome → open_chrome(website)
-Abrir Epiphany (navegador) → open_epiphany(website)
-Abrir terminal → open_terminal()
+Preséntate: El asistente GAMA se presenta.
 
-2. Comandos de Hardware en Raspberry Pi:
-Controlar LED → control_led(state) (on o off)
-Leer temperatura → read_temperature()
+Nombre: El asistente GAMA se presenta.
 
-3. Comandos de Clima:
-Obtener el clima → get_weather(ubicacion)
+Abre Chrome en...: Abre el navegador Chrome en un sitio específico.
 
-4. Ejemplos de Código:
-Tu asistente puede mostrar ejemplos de código para componentes electrónicos en Raspberry Pi:
+Abre Epiphany en...: Abre el navegador Epiphany en un sitio específico.
 
-Ejemplo de buzzer → example_buzzer()
-Ejemplo de buzzer con botón → example_button_buzzer()
-Ejemplo de relay → example_relay()
-Ejemplo de vibrador → example_vibration()
+Abre la terminal: Abre una terminal en Raspbian.
+
+Ejemplo de buzzer: Muestra un ejemplo de código para controlar un buzzer.
+
+Ejemplo de botón y buzzer: Muestra un ejemplo de código para controlar un buzzer con un botón.
+
+Ejemplo de relay: Muestra un ejemplo de código para usar un relay.
+
+Ejemplo de vibración: Muestra un ejemplo de código para usar un sensor de vibración.
+
+Mide la distancia: Mide la distancia usando un sensor ultrasónico.
+
+Mide la temperatura: Mide la temperatura usando un sensor de temperatura.
+
+Usa el buzzer: Hace sonar el buzzer.
+
+Usa la matriz: Usa la matriz (posiblemente una matriz LED).
+
+Usa la pantalla LCD: Usa la pantalla LCD.
+
+Muestra la hora: Muestra la hora actual.
+
+Comandos disponibles: Muestra una lista de todos los comandos disponibles.
