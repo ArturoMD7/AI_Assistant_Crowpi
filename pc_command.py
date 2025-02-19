@@ -5,6 +5,7 @@ import os
 
 # Importar la función measure_distance desde read_distance.py
 from sensors.read_distance import measure_distance
+from sensors.temperature import measure_temperature
 
 # Clase para ejecutar comandos en la Raspberry Pi con Raspbian
 class PcCommand():
@@ -36,6 +37,17 @@ class PcCommand():
             return f"La distancia medida es {distance_cm:.2f} cm"  # Formatear a 2 decimales
         else:
             return "No se pudo medir la distancia."
+        
+    def read_temperature(self):
+        if not sys.platform.startswith("linux"):  # Si no es Raspberry Pi
+            return "Simulando mediciónn de temperatura: 16 grados"  # Simular una distancia en Windows
+
+        # Llamar a la función measure_distance para obtener la distancia
+        temperature = measure_temperature()
+        if temperature is not None:
+            return(f"la Temperatura es de: {temperature:.2f} grados Celcius")
+        else:
+            return("Fallo al medir la temperatura.")
 
     def use_buzzer(self):
         try:
@@ -54,3 +66,9 @@ class PcCommand():
             call("sudo python3 sensors/lcd.py", shell=True)
         except Exception as e:
             print(f"Error al ejecutar el comando de lcd: {e}")
+            
+    def show_hour(self):
+        try:
+            call("sudo python3 sensors/hour.py", shell=True)
+        except Exception as e:
+            print(f"Error al ejecutar el comando de hora: {e}")

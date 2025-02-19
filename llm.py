@@ -133,6 +133,14 @@ class LLM():
                         "properties": {}
                     }
                 },
+                {
+                    "name": "read_temperature",
+                    "description": "Medir la temperatura usando el sensor de temperatura",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
 
                 {
                     "name": "use_buzzer",
@@ -156,6 +164,15 @@ class LLM():
                 {
                     "name": "use_lcd",
                     "description": "Usar la pantalla lcd",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                
+                {
+                    "name": "show_hour",
+                    "description": "mostrar la hora",
                     "parameters": {
                         "type": "object",
                         "properties": {}
