@@ -68,19 +68,8 @@ class LLM():
                         "properties": {}
                     }
                 },
-                {
-                    "name": "control_led",
-                    "description": "Encender o apagar un LED conectado al GPIO",
-                    "parameters": {
-                        "type": "object",
-                        "properties": {
-                            "state": {
-                                "type": "string",
-                                "description": "El estado del LED (on/off)"
-                            }
-                        }
-                    }
-                },
+                
+    
                 {
                     "name": "read_temperature",
                     "description": "Leer la temperatura de un sensor DS18B20",
@@ -150,10 +139,38 @@ class LLM():
                         "properties": {}
                     }
                 },
+
+                {
+                    "name": "use_servomotor",
+                    "description": "Utiliza el servomotor",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
                 
                 {
-                    "name": "use_matrix",
-                    "description": "Usar la matriz",
+                    "name": "led_on",
+                    "description": "Encender el led",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                
+                
+                {
+                    "name": "show_hour",
+                    "description": "Muestra la hora",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                
+                {
+                    "name": "led_off",
+                    "description": "Apagar el led",
                     "parameters": {
                         "type": "object",
                         "properties": {}
@@ -171,8 +188,8 @@ class LLM():
                 },
                 
                 {
-                    "name": "show_hour",
-                    "description": "mostrar la hora",
+                    "name": "use_matrix",
+                    "description": "Muestra un mensaje en la matriz led",
                     "parameters": {
                         "type": "object",
                         "properties": {}

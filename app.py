@@ -127,6 +127,18 @@ def audio():
             final_response = "Listo, Se hizo sonar el buzzer"
             tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
             return {"result": "ok", "text": final_response, "file": tts_file}
+        
+        elif function_name == "led_on":
+            PcCommand().led_on()
+            final_response = "Listo, Se encendio el led"
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file}
+            
+        elif function_name == "led_off":
+            PcCommand().led_off()
+            final_response = "Listo, Se apago el led"
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file}
             
         elif function_name == "use_matrix":
             PcCommand().use_matrix()
@@ -137,6 +149,12 @@ def audio():
         elif function_name == "use_lcd":
             PcCommand().use_lcd()
             final_response = "Listo, Mensaje mostrado en la pantalla lcd"
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file}
+        
+        elif function_name == "use_servomotor":
+            PcCommand().use_servomotor()
+            final_response = "Listo, se ah usado el servmomotor"
             tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
             return {"result": "ok", "text": final_response, "file": tts_file}
         

@@ -6,8 +6,22 @@ import os
 # Importar la función measure_distance desde read_distance.py
 from sensors.read_distance import measure_distance
 from sensors.temperature import measure_temperature
+from gpiozero import LED
+import time
+
+
+led = LED(26)
+
+def on_led():
+    led.on()
+    
+
+def off_led():
+    led.off()
+    
 
 # Clase para ejecutar comandos en la Raspberry Pi con Raspbian
+
 class PcCommand():
     def __init__(self):
         if sys.platform.startswith("linux"):  # Solo ejecutar en Raspberry Pi
@@ -54,6 +68,12 @@ class PcCommand():
             call("sudo python3 sensors/buzzer.py", shell=True)
         except Exception as e:
             print(f"Error al ejecutar el comando del buzzer: {e}")
+            
+    def use_servomotor(self):
+        try:
+            call("sudo python3 sensors/useservomotor.py", shell=True)
+        except Exception as e:
+            print(f"Error al ejecutar el comando del buzzer: {e}")
 
     def use_matrix(self):
         try:
@@ -66,6 +86,12 @@ class PcCommand():
             call("sudo python3 sensors/lcd.py", shell=True)
         except Exception as e:
             print(f"Error al ejecutar el comando de lcd: {e}")
+            
+    def led_on(self):
+        led.on()
+            
+    def led_off(self):
+        led.off()   
             
     def show_hour(self):
         try:
