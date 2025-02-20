@@ -2,24 +2,16 @@
 # -*- coding: utf-8 -*-
 # http://elecrow.com/
 
-import RPi.GPIO as GPIO
+from gpiozero import OutputDevice as Vibration
 import time
 
-# Definir pin de vibracion
-VIBRATION_PIN = 27
+# Define vibration pin
+vibration_sensor = Vibration(27)
 
-# Configurar el modo de pines a BCM
-GPIO.setmode(GPIO.BCM)
+# Turn on vibration
+vibration_sensor.on()
+# Wait half a second
+time.sleep(0.5)
 
-# Configurar el pin de vibracion como salida
-GPIO.setup(VIBRATION_PIN, GPIO.OUT)
-
-# Encender vibracion
-GPIO.output(VIBRATION_PIN, GPIO.HIGH)
-time.sleep(0.5)  # Esperar medio segundo
-
-# Apagar vibracion
-GPIO.output(VIBRATION_PIN, GPIO.LOW)
-
-# Limpiar configuraciones de GPIO
-GPIO.cleanup()
+# Turn off vibration
+vibration_sensor.off()

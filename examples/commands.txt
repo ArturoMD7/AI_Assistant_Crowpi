@@ -16,6 +16,34 @@ Ejemplo de relay: Muestra un ejemplo de código para usar un relay.
 
 Ejemplo de vibración: Muestra un ejemplo de código para usar un sensor de vibración.
 
+Ejemplo de control remoto: muestra un ejemplo para controlar un control remoto.
+
+Ejemplo de la matriz de teclas: Muestra un ejemplo para usar la matriz de teclas
+
+Ejemplo de inclinacion: Muestra un ejemplo para usar un sensor de inclinación.
+
+Ejemplo de touch: Muestra un ejemplo para usar un sensor de tacto.
+
+Ejemplo de control del display: Muestra un ejemplo para controlar el display.
+
+Ejemplo de matriz: Muestra un ejemplo para usar una matriz.
+
+Ejemplo de servomotor: Muestra un ejemplo para usar un servomotor.
+
+Ejemplo de stepmotor: Muestra un ejemplo para usar un stepmotor.
+
+Ejemplo de pantalla LCD: Muestra un ejemplo para mostrar texto en una pantalla LCD.
+
+Ejemplo de sensor de la distancia: Muestra un ejemplo para usar un sensor de distancia.
+
+Ejemplo del sensor de movimiento: Muestra un ejemplo para usar un sensor de movimiento.
+
+Ejemplo dht: Muestra un ejemplo para usar un sensor de temperatura y humedad.
+
+Ejemplo del sensor de luz: Muestra un ejemplo para usar un sensor de luz.
+
+Ejemplo de LED: Muestra un ejemplo para usar un LED.
+
 Mide la distancia: Mide la distancia usando un sensor ultrasónico.
 
 Mide la temperatura: Mide la temperatura usando un sensor de temperatura.

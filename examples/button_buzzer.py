@@ -2,31 +2,19 @@
 # -*- coding: utf-8 -*-
 # http://elecrow.com/
 
-import RPi.GPIO as GPIO
+from gpiozero import Button, Buzzer
 import time
 
-# Configuración de pines para el botón y el buzzer
-button_pin = 26
-buzzer_pin = 18
-
-# Configurar el modo de la placa a BCM
-GPIO.setmode(GPIO.BCM)
-
-# Configurar el pin del botón como entrada con pull-up y el del buzzer como salida
-GPIO.setup(button_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.setup(buzzer_pin, GPIO.OUT)
+# Configure both button and buzzer pins
+button = Button(26)
+buzzer = Buzzer(18)
 
 try:
     while True:
-        # Verificar si el botón está presionado
-        if GPIO.input(button_pin) == GPIO.LOW:
-            # Encender el buzzer
-            GPIO.output(buzzer_pin, GPIO.HIGH)
+        if button.is_pressed:
+            buzzer.on()  # Turn on the buzzer if the button is pressed
         else:
-            # Apagar el buzzer
-            GPIO.output(buzzer_pin, GPIO.LOW)
-        time.sleep(0.1)  # Pequeña pausa para evitar rebotes
-
+            buzzer.off()  # Turn off the buzzer if the button is not pressed
 except KeyboardInterrupt:
-    # Limpiar la configuración de los pines GPIO al salir
-    GPIO.cleanup()
+    # CTRL+C detected, cleaning and quitting the script
+    buzzer.off()
