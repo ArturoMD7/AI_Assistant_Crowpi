@@ -186,6 +186,118 @@ class LLM():
                         "type": "object",
                         "properties": {}
                     }
+                },
+                {
+                    "name": "example_blinking_led",
+                    "description": "Ejemplo de código para un led parpadeante",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                {
+                    "name": "example_light_sensor",
+                    "description": "Ejemplo de código para sensor de luz",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                {
+                    "name": "example_dht_sensor",
+                    "description": "Ejemplo de código para sensor dht",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                {
+                    "name": "example_motion_sensor",
+                    "description": "Ejemplo de código para sensor de movimiento",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                {
+                    "name": "example_distancia_sensor",
+                    "description": "Ejemplo de código para el sensor de la distancia",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                {
+                    "name": "example_screen_lcd",
+                    "description": "Ejemplo de código para mostrar texto en la pantalla lcd",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                {
+                    "name": "example_stepmotor",
+                    "description": "Ejemplo de código para que funcione el stepmotor",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                {
+                    "name": "example_servomotor",
+                    "description": "Ejemplo de código para que funcione el servomotor",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                {
+                    "name": "example_matrix",
+                    "description": "Ejemplo de código para matrix",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                {
+                    "name": "example_segment",
+                    "description": "Ejemplo de código para controlar el disiplay",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                {
+                    "name": "example_touch_sensor",
+                    "description": "Ejemplo de código para el senor de touch",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                {
+                    "name": "example_tilt",
+                    "description": "Ejemplo de código para la inclinacion del dispositivo",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                {
+                    "name": "example_button_matrix",
+                    "description": "Ejemplo de código para la matriz de teclas",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                {
+                    "name": "example_remote_controller",
+                    "description": "Ejemplo de código para la recivir señales del control remoto",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
                 }
             ],
             function_call="auto",

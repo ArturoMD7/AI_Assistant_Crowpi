@@ -145,6 +145,104 @@ def audio():
             final_response = "Listo, ya te mostre la hora"
             tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
             return {"result": "ok", "text": final_response, "file": tts_file}
+        
+        elif function_name == "example_blinking_led":
+            with open("examples/blinking_led.py", "r") as file:
+                code_content = file.read()
+            final_response = "Aquí tienes el ejemplo del led parpadeante"
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file, "code": code_content}
+        
+        elif function_name == "example_light_sensor":
+            with open("examples/light_sensor.py", "r") as file:
+                code_content = file.read()
+            final_response = "Aquí tienes el ejemplo de sensor de luz"
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file, "code": code_content}
+        
+        elif function_name == "example_dht_sensor":
+            with open("examples/dht_sensor.py", "r") as file:
+                code_content = file.read()
+            final_response = "Aquí tienes el ejemplo para medir la temperatura y humedad"
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file, "code": code_content}
+        
+        elif function_name == "example_motion_sensor":
+            with open("examples/motion_sensor.py", "r") as file:
+                code_content = file.read()
+            final_response = "Aquí tienes el ejemplo para detectar la inclinacion"
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file, "code": code_content}
+        
+        elif function_name == "example_distancia_sensor":
+            with open("examples/distancia_sensor.py", "r") as file:
+                code_content = file.read()
+            final_response = "Aquí tienes el ejemplo para medir la distancia"
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file, "code": code_content}
+        
+        elif function_name == "example_screen_lcd":
+            with open("examples/screen_lcd.py", "r") as file:
+                code_content = file.read()
+            final_response = "Aquí tienes el ejemplo para mostrar texto en la pantalla LCD"
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file, "code": code_content}
+        
+        elif function_name == "example_stepmotor":
+            with open("examples/stepmotor.py", "r") as file:
+                code_content = file.read()
+            final_response = "Aquí tienes el ejemplo para que funcione el stepmotor"
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file, "code": code_content}
+        
+        elif function_name == "example_servomotor":
+            with open("examples/servomotor.py", "r") as file:
+                code_content = file.read()
+            final_response = "Aquí tienes el ejemplo para que funcione el servomotor"
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file, "code": code_content}
+        
+        elif function_name == "example_matrix":
+            with open("examples/matrix.py", "r") as file:
+                code_content = file.read()
+            final_response = "Aquí tienes el ejemplo para la matrix"
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file, "code": code_content}
+        
+        elif function_name == "example_segment":
+            with open("examples/segment.py", "r") as file:
+                code_content = file.read()
+            final_response = "Aquí tienes el ejemplo para controlar el display"
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file, "code": code_content}
+        
+        elif function_name == "example_touch_sensor":
+            with open("examples/touch_sensor.py", "r") as file:
+                code_content = file.read()
+            final_response = "Aquí tienes el ejemplo para el sensor touch"
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file, "code": code_content}
+        
+        elif function_name == "example_tilt":
+            with open("examples/tilt.py", "r") as file:
+                code_content = file.read()
+            final_response = "Aquí tienes el ejemplo para el movimiento del dispositivo"
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file, "code": code_content}
+        
+        elif function_name == "example_button_matrix":
+            with open("examples/button_matrix.py", "r") as file:
+                code_content = file.read()
+            final_response = "Aquí tienes el ejemplo para la matriz de teclas"
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file, "code": code_content}
+        
+        elif function_name == "example_remote_controller":
+            with open("examples/remote_controller.py", "r") as file:
+                code_content = file.read()
+            final_response = "Aquí tienes el ejemplo para usar el control remoto"
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file, "code": code_content}
 
     else:
         final_response = "Eso no está relacionado con Crowpi"
