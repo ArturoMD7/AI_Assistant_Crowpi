@@ -1,26 +1,26 @@
-Preséntate: El asistente GAMA se presenta.
+Preséntate: El asistente GAMA se presenta.
 
 Nombre: El asistente GAMA se presenta.
 
-Abre Chrome en...: Abre el navegador Chrome en un sitio específico.
+Abre Chrome en...: Abre el navegador Chrome en un sitio específico.
 
-Abre Epiphany en...: Abre el navegador Epiphany en un sitio específico.
+Abre Epiphany en...: Abre el navegador Epiphany en un sitio específico.
 
 Abre la terminal: Abre una terminal en Raspbian.
 
-Ejemplo de buzzer: Muestra un ejemplo de código para controlar un buzzer.
+Ejemplo de buzzer: Muestra un ejemplo de código para controlar un buzzer.
 
-Ejemplo de botón y buzzer: Muestra un ejemplo de código para controlar un buzzer con un botón.
+Ejemplo de botón y buzzer: Muestra un ejemplo de código para controlar un buzzer con un botón.
 
-Ejemplo de relay: Muestra un ejemplo de código para usar un relay.
+Ejemplo de relay: Muestra un ejemplo de código para usar un relay.
 
-Ejemplo de vibración: Muestra un ejemplo de código para usar un sensor de vibración.
+Ejemplo de vibración: Muestra un ejemplo de código para usar un sensor de vibración.
 
 Ejemplo de control remoto: muestra un ejemplo para controlar un control remoto.
 
 Ejemplo de la matriz de teclas: Muestra un ejemplo para usar la matriz de teclas
 
-Ejemplo de inclinacion: Muestra un ejemplo para usar un sensor de inclinación.
+Ejemplo de inclinacion: Muestra un ejemplo para usar un sensor de inclinación.
 
 Ejemplo de touch: Muestra un ejemplo para usar un sensor de tacto.
 
@@ -44,7 +44,7 @@ Ejemplo del sensor de luz: Muestra un ejemplo para usar un sensor de luz.
 
 Ejemplo de LED: Muestra un ejemplo para usar un LED.
 
-Mide la distancia: Mide la distancia usando un sensor ultrasónico.
+Mide la distancia: Mide la distancia usando un sensor ultrasónico.
 
 Mide la temperatura: Mide la temperatura usando un sensor de temperatura.
 
@@ -56,4 +56,40 @@ Usa la pantalla LCD: Usa la pantalla LCD.
 
 Muestra la hora: Muestra la hora actual.
 
-Comandos disponibles: Muestra una lista de todos los comandos disponibles.
+Info ultrasonico: Describe para que sirve el sensor ultrasonico
+
+Info temperatura: Describe para que sirve el sensor de temperatura.
+
+Info humedad: Describe para que sirve el sensor de humedad.
+
+Info luz: Describe para que sirve el sensor de luz.
+
+Info movimiento: Describe para que sirve el sensor de movimiento.
+
+Info led: Describe para que sirve el LED.
+
+Info camara: Describe para que sirve la camara.
+
+Info microfono: Describe para que sirve el microfono.
+
+Info lcd: Describe para que sirve la pantalla LCD.
+
+Info vibracion: Describe para que sirve el motor de vibracion.
+
+Info sonido: Describe para que sirve el sensor de sonido.
+
+Info matriz: Describe para que sirve la matriz.
+
+Info servo: Describe para que sirve el servo motor.
+
+Info stepmotor: Describe para que sirve el motor paso a paso.
+
+Info inclinacion: Describe para que sirve el sensor de inclinacion.
+
+Info tactil: Describe para que sirve el sensor tactil.
+
+Info matrizdebotones: Describe para que sirve la matriz de botones.
+
+Info nfc: Describe para que sirve el lector NFC.
+
+Comandos disponibles: Muestra una lista de todos los comandos disponibles
