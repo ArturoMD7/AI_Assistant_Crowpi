@@ -6,18 +6,19 @@ import os
 # Importar la función measure_distance desde read_distance.py
 from sensors.read_distance import measure_distance
 from sensors.temperature import measure_temperature
-from gpiozero import LED
 import time
 
+if sys.platform.startswith("linux"):  # Si es Raspberry Pi
+    from gpiozero import LED
 
-led = LED(26)
+    led = LED(26)
 
-def on_led():
-    led.on()
-    
+    def on_led():
+        led.on()
+        
 
-def off_led():
-    led.off()
+    def off_led():
+        led.off()
     
 
 # Clase para ejecutar comandos en la Raspberry Pi con Raspbian

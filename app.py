@@ -261,6 +261,46 @@ def audio():
             final_response = "Aquí tienes el ejemplo para usar el control remoto"
             tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
             return {"result": "ok", "text": final_response, "file": tts_file, "code": code_content}
+        
+        elif function_name == "info_ultrasonico":
+            final_response = "El sensor ultrasónico se utiliza para medir distancias. Emite ondas sonoras y calcula la distancia basándose en el tiempo que tarda en recibir el eco."
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file}
+        
+        elif function_name == "info_temperatura":
+            final_response = "El sensor de temperatura mide la temperatura ambiente en grados Celsius o Fahrenheit."
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file}
+        
+        elif function_name == "info_humedad":
+            final_response = "El sensor de humedad mide la cantidad de vapor de agua en el aire, expresada como un porcentaje."
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file}
+        
+        elif function_name == "info_luz":
+            final_response = "El sensor de luz detecta la intensidad de la luz en el ambiente. Puede usarse para ajustar el brillo de una pantalla o encender luces automáticamente."
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file}
+        
+        elif function_name == "info_movimiento":
+            final_response = "El sensor de movimiento (PIR) detecta cambios en la radiación infrarroja, lo que le permite detectar movimiento."
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file}
+        
+        elif function_name == "info_led":
+            final_response = "Los LEDs son componentes que emiten luz cuando se les aplica corriente. Pueden ser de un solo color o RGB (rojo, verde, azul)."
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file}
+
+        elif function_name == "info_camara":
+            final_response = "La cámara permite capturar imágenes o videos. Puede usarse para vigilancia, reconocimiento facial o proyectos de visión por computadora."
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file}
+        
+        elif function_name == "info_microfono":
+            final_response = "El micrófono captura sonido y lo convierte en señales eléctricas. Puede usarse para grabación de audio o comandos de voz."
+            tts_file = TTS().process(final_response, filename=f"response_{int(time.time())}.mp3")
+            return {"result": "ok", "text": final_response, "file": tts_file}
 
     else:
         final_response = "Eso no está relacionado con Crowpi"

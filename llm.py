@@ -315,7 +315,72 @@ class LLM():
                         "type": "object",
                         "properties": {}
                     }
+                },
+                {
+                    "name": "info_ultrasonico",
+                    "description": "Describe para qué sirve el sensor ultrasónico",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                {
+                    "name": "info_temperatura",
+                    "description": "Describe para qué sirve el sensor de temperatura",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                {
+                    "name": "info_humedad",
+                    "description": "Describe para qué sirve el sensor de humedad",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                {
+                    "name": "info_luz",
+                    "description": "Describe para qué sirve el sensor de luz",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                {
+                    "name": "info_movimiento",
+                    "description": "Describe para qué sirve el sensor de movimiento",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                {
+                    "name": "info_led",
+                    "description": "Describe para qué sirven los LEDs",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                {
+                    "name": "info_camara",
+                    "description": "Describe para qué sirve la cámara",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                {
+                    "name": "info_microfono",
+                    "description": "Describe para qué sirve el micrófono",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    }
                 }
+
             ],
             function_call="auto",
         )
