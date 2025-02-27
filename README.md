@@ -4,6 +4,19 @@
 ## Como funciona?
 ![Descripción de la imagen](templates/Diagram.png)
 
+## Justificación
+
+El desarrollo del asistente GAMA responde a la necesidad de contar con una herramienta educativa interactiva que facilite el aprendizaje de inteligencia artificial y electrónica en la plataforma CrowPi. La CrowPi es un kit basado en Raspberry Pi que integra múltiples sensores y componentes electrónicos, lo que la hace ideal para la enseñanza de programación, electronica e internet de las cosas.
+
+Sin embargo, la curva de aprendizaje puede ser alta para usuarios sin experiencia previa en estos campos. En este contexto, GAMA busca simplificar el proceso de aprendizaje al proporcionar un asistente basado en inteligencia artificial capaz de:
+
+- Explicar el funcionamiento de los componentes de la CrowPi.
+- Ofrecer ejemplos de código y guías interactivas.
+- Responder preguntas en lenguaje natural.
+- Facilitar la experimentación con proyectos de IA y hardware.
+
+Además, este asistente potencia el aprendizaje autónomo, promoviendo un enfoque práctico y dinámico que fomente la exploración y el desarrollo de habilidades en ciencia y tecnología. Con esta solución, se busca democratizar el acceso a la educación en inteligencia artificial y electrónica, especialmente para estudiantes, docentes y entusiastas que deseen aprender de manera autodidacta o complementar su formación académica.
+
 ## Configuración
 Para ejecutar el proyecto es necesario:
 - Descargar el repositorio
