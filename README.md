@@ -24,7 +24,7 @@ Para ejecutar el proyecto es necesario:
 - Instala las dependencias ejecutando 
 	- ```  pip install -r requirements.txt ```
 - Crea un archivo llamado ```.env```
-	- En el archivo coloca las llaves. Para el proyecto tal cual del video (y este repositorio) estoy utilizando:
+	- En el archivo coloca las llaves:
 	- ```OPENAI_API_KEY=XXXXXX```
 	- ```ELEVENLABS_API_KEY=XXXXXX```
 
@@ -39,7 +39,6 @@ El proyecto cuenta con algunas cosas que quizá quieras modificar, por ejemplo:
 	- ```flask --app app run --debug```
 	- En tu navegador ve a http://localhost:5000
 	- Da clic para comenzar a grabar (pedirá permiso). Dar clic para dejar de grabar
-	- Espera y ve como domina al mundo
 
 ## Licencias
 - Imagen de micrófono por Freepik
