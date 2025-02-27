@@ -1,7 +1,7 @@
 
 # Asistente virtual GAMA
 
-#Como funciona?
+## Como funciona?
 ![Descripción de la imagen](templates/Diagram.png)
 
 ## Configuración
@@ -18,7 +18,7 @@ Para ejecutar el proyecto es necesario:
 ## Ajustes
 El proyecto cuenta con algunas cosas que quizá quieras modificar, por ejemplo:
 
-- En la clase LLM puedes modificar para que el asistente no sea "malhablado". Se utiliza en 2 lugares del archivo.
+- En la clase LLM puedes modificar para que el asistente no sea "amable". Se utiliza en 2 lugares del archivo.
 - En la clase PcCommand, abre Chrome buscándolo en una ruta fija para Windows. Puedes modificarlo para que busque el ejecutable en Mac / Linux.
 
 ## Ejecución
