@@ -1,5 +1,8 @@
 
-# Asistente virtual
+# Asistente virtual GAMA
+
+#Como funciona?
+![Descripción de la imagen](templates/Diagrama.png)
 
 ## Configuración
 Para ejecutar el proyecto es necesario:
